@@ -495,8 +495,8 @@ static void test_thread(ms_ptr_t arg)
             memset(sensor_data, 0, sizeof(sensor_data));
 
             while (--count) {
-                sensor_data[0].type = NS_SENSOR_TYPE_TEMP;
-                sensor_data[1].type = NS_SENSOR_TYPE_HUMI;
+                sensor_data[0].type = MS_SENSOR_TYPE_TEMP;
+                sensor_data[1].type = MS_SENSOR_TYPE_HUMI;
 
                 if (ms_io_read(fd, sensor_data, sizeof(sensor_data)) > 0) {
                     tem_rate = sensor_data[0].u.temp;
@@ -539,9 +539,9 @@ static void test_thread(ms_ptr_t arg)
             memset(sensor_data, 0, sizeof(sensor_data));
 
             while (--count) {
-                sensor_data[0].type = NS_SENSOR_TYPE_IR;
-                sensor_data[1].type = NS_SENSOR_TYPE_LIGHT;
-                sensor_data[2].type = NS_SENSOR_TYPE_PROXIMITY;
+                sensor_data[0].type = MS_SENSOR_TYPE_IR;
+                sensor_data[1].type = MS_SENSOR_TYPE_LIGHT;
+                sensor_data[2].type = MS_SENSOR_TYPE_PROXIMITY;
 
                 if (ms_io_read(fd, sensor_data, sizeof(sensor_data)) > 0) {
                     ir  = sensor_data[0].u.ir;
