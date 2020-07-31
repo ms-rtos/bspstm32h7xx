@@ -119,7 +119,6 @@
 #define BSP_CFG_GPIO_EN             1
 #define BSP_CFG_I2C_EN              1
 #define BSP_CFG_UART_EN             1
-#define BSP_CFG_PROG_TEST_EN        0
 #define BSP_CFG_HW_TEST_EN          0
 
 #if BSP_CFG_HW_TEST_EN > 0

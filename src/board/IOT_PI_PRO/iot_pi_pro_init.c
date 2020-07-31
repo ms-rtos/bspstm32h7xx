@@ -376,10 +376,7 @@ static void boot_thread(ms_ptr_t arg)
     ms_apps_start("ms-boot-param.dtb");
 #endif
 
-#if BSP_CFG_PROG_TEST_EN > 0
-    ms_printk(MS_PK_NOTICE, "start test_program.\n");
-    ms_process_create("test_program", (ms_ptr_t)0x90100000, 64 * 1024, 4 * 1024, 9, 0, 0, MS_NULL, MS_NULL, MS_NULL);
-#endif
+    ms_process_create("iotpi_sddc", (ms_const_ptr_t)0x90100000, 65536, 4096, 9, 0 , 0, MS_NULL, MS_NULL, MS_NULL);
 }
 
 #if BSP_CFG_HW_TEST_EN > 0
