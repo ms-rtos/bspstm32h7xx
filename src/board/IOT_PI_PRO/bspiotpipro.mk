@@ -85,7 +85,7 @@ LOCAL_CXXFLAGS :=
 #*********************************************************************************************************
 # Depend library (eg. LOCAL_DEPEND_LIB := -la LOCAL_DEPEND_LIB_PATH := -L"Your library search path")
 #*********************************************************************************************************
-LOCAL_DEPEND_LIB      := -lmslauncher -llittlefs -lfatfs -lnet_lwip -lnet_esp_at -lstusbhost -lmsdriver
+LOCAL_DEPEND_LIB      := -lmslauncher -lfatfs -lnet_lwip -lnet_esp_at -lmsdriver
 LOCAL_DEPEND_LIB_PATH := \
 $(STM32H7HAL_DEPEND_LIB_PATH) \
 -L"$(MSRTOS_BASE_PATH)/libmsdriver/$(OUTDIR)"
