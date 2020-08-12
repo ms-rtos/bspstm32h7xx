@@ -1036,10 +1036,6 @@ void bsp_init(void)
                     BSP_CFG_APP_RAM_BASE,
                     BSP_CFG_APP_RAM_SIZE,
             },
-            [MS_EXT_FLASH_REGION] = {
-                    BSP_CFG_ROM_BASE,
-                    BSP_CFG_ROM_SIZE,
-            },
     };
 
     ms_rtos_init(mem_layout);
