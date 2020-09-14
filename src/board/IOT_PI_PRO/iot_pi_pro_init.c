@@ -974,7 +974,7 @@ static void ms_app_init(void)
                      MS_NULL,
                      2048U,
                      MS_CFG_KERN_LOWEST_PRIO - 1U,
-                     70U,
+                     0U,
                      MS_THREAD_OPT_SUPER | MS_THREAD_OPT_REENT_EN,
                      MS_NULL);
 #endif
@@ -984,7 +984,7 @@ static void ms_app_init(void)
                      MS_NULL,
                      4096U,
                      4U,
-                     70U,
+                     0U,
                      MS_THREAD_OPT_SUPER | MS_THREAD_OPT_REENT_EN,
                      MS_NULL);
 
@@ -994,7 +994,7 @@ static void ms_app_init(void)
                      MS_NULL,
                      2048U,
                      MS_CFG_KERN_LOWEST_PRIO - 2U,
-                     70U,
+                     0U,
                      MS_THREAD_OPT_SUPER | MS_THREAD_OPT_REENT_EN,
                      MS_NULL);
 #endif

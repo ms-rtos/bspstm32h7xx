@@ -52,7 +52,7 @@ static int __stm32_smartcard_open(ms_ptr_t ctx, ms_io_file_t *file, int oflag, m
     int         ret;
     privinfo_t *priv = ctx;
 
-    if (ms_atomic_inc(MS_IO_DEV_REF(file)) == 2) {
+    if (ms_atomic_inc(MS_IO_DEV_REF(file)) == 1) {
 
         if (BSP_SmartCard_Init(&priv->context) == MS_ERR_NONE) {
             ret = 0;
