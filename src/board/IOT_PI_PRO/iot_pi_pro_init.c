@@ -264,7 +264,6 @@ static void ms_esp_at_net_init_done(ms_ptr_t arg)
 #endif
 #endif
 }
-#endif
 
 #if MS_CFG_SHELL_MODULE_EN > 0
 /**
@@ -284,6 +283,7 @@ static void __ms_shell_esp8266_smartcfg(int argc, char *argv[], const ms_shell_i
 }
 
 MS_SHELL_CMD(smartcfg, __ms_shell_esp8266_smartcfg, "ESP8266 smart configure", __ms_shell_cmd_smartcfg);
+#endif
 #endif
 
 /**
