@@ -134,6 +134,31 @@ void SDMMC2_IRQHandler(void)
 }
 #endif
 
+#if BSP_CFG_FB_EN > 0
+
+extern DMA2D_HandleTypeDef  hdma2d;
+
+void DMA2D_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    HAL_DMA2D_IRQHandler(&hdma2d);
+
+    (void)ms_int_exit();
+}
+
+extern LTDC_HandleTypeDef   hlcd_ltdc;
+
+void LTDC_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    HAL_LTDC_IRQHandler(&hlcd_ltdc);
+
+    (void)ms_int_exit();
+}
+
+#endif
 /*********************************************************************************************************
   END
 *********************************************************************************************************/
