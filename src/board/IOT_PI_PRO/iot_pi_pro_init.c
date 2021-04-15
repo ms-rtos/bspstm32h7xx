@@ -304,8 +304,18 @@ static void boot_thread(ms_ptr_t arg)
     __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+    __HAL_RCC_GPIOE_CLK_ENABLE();
 
     stm32_gpio_drv_register();
+
+    stm32_gpio_dev_create("/dev/lrst",  (ms_addr_t)GPIOA, GPIO_PIN_2);
+    stm32_gpio_dev_create("/dev/ldio0", (ms_addr_t)GPIOE, GPIO_PIN_8);
+    stm32_gpio_dev_create("/dev/ldio1", (ms_addr_t)GPIOE, GPIO_PIN_4);
+    stm32_gpio_dev_create("/dev/ldio2", (ms_addr_t)GPIOB, GPIO_PIN_12);
+    stm32_gpio_dev_create("/dev/ldio3", (ms_addr_t)GPIOA, GPIO_PIN_12);
+    stm32_gpio_dev_create("/dev/ldio4", (ms_addr_t)GPIOD, GPIO_PIN_4);
+
     stm32_gpio_dev_create("/dev/led1", (ms_addr_t)GPIOE, GPIO_PIN_0);
     stm32_gpio_dev_create("/dev/led2", (ms_addr_t)GPIOD, GPIO_PIN_2);
     stm32_gpio_dev_create("/dev/led3", (ms_addr_t)GPIOC, GPIO_PIN_12);
@@ -376,6 +386,13 @@ static void boot_thread(ms_ptr_t arg)
     ms_apps_start("ms-boot-param.dtb");
 #endif
 
+#if BSP_CFG_SPI_EN > 0
+    stm32_spi_bus_dev_create("/dev/spi2", 2U, SPI_POLL_MODE);
+
+    if (sx1278_attach_spi("spi2", "/dev/lora") != MS_ERR_NONE) {
+        ms_printk(MS_PK_ERR, "failed to attach spi.\n");
+    }
+#endif
     ms_process_create("iotpi_sddc", 0x90100000, 65536, 4096, 9, 0 , 0, MS_NULL, MS_NULL, MS_NULL);
 }
 

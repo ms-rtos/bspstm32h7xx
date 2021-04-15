@@ -10,37 +10,33 @@
 **
 **--------------文件信息--------------------------------------------------------------------------------
 **
-** 文   件   名: iot_pi_pro.h
+** 文   件   名: iot_pi_pro_sx1278.h
 **
-** 创   建   人: Jiao.jinxing
+** 创   建   人: Song.xiaolong
 **
-** 文件创建日期: 2020 年 04 月 07 日
+** 文件创建日期: 2021 年 02 月 26 日
 **
-** 描        述: IoT Pi Pro 头文件
+** 描        述: IoT Pi Pro LoRa SX1278 驱动
 *********************************************************************************************************/
 
-#ifndef IOT_PI_PRO_H
-#define IOT_PI_PRO_H
+#ifndef IOT_PI_LORA_H
+#define IOT_PI_LORA_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#include "iot_pi_pro_sd.h"
-#include "iot_pi_pro_lcd.h"
-#include "iot_pi_pro_uart.h"
-#include "iot_pi_pro_i2c.h"
-#include "iot_pi_pro_ts.h"
-#include "iot_pi_pro_spi.h"
-#include "iot_pi_pro_sx1278.h"
+#define LORA_NSS_PIN                     GPIO_PIN_5
+#define LORA_NSS_GPIO_PORT               GPIOA
+#define LOAR_NSS_GPIO_CLK_ENABLE()        __HAL_RCC_GPIOA_CLK_ENABLE();
 
-extern void bsp_delay_us(ms_uint32_t nus);
+ms_err_t sx1278_attach_spi(const char *spi_bus_name, const char *dev_name);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif                                                                  /*  IOT_PI_PRO_H                */
+#endif                                                                  /*  IOT_PI_LORA_H               */
 /*********************************************************************************************************
-  END
+   END
 *********************************************************************************************************/

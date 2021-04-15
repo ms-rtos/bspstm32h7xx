@@ -289,8 +289,8 @@ static int __stm32_gpio_ioctl(ms_ptr_t ctx, ms_io_file_t *file, int cmd, void *a
                 /*
                  * Save param in priv
                  */
-                priv->mode = param->mode;
-                priv->pull = param->pull;
+                priv->mode  = param->mode;
+                priv->pull  = param->pull;
                 priv->speed = param->speed;
 
                 ret = 0;
@@ -307,8 +307,8 @@ static int __stm32_gpio_ioctl(ms_ptr_t ctx, ms_io_file_t *file, int cmd, void *a
     case MS_GPIO_CMD_GET_PARAM:
         if (ms_access_ok(arg, sizeof(ms_gpio_param_t), MS_ACCESS_W)) {
             param = (ms_gpio_param_t *)arg;
-            param->mode = priv->mode;
-            param->pull = priv->speed;
+            param->mode  = priv->mode;
+            param->pull  = priv->pull;
             param->speed = priv->speed;
             ret = 0;
         } else {

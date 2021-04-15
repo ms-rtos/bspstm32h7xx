@@ -26,7 +26,14 @@
 extern "C" {
 #endif
 
-ms_err_t stm32_spi_bus_dev_create(const char *path, ms_uint8_t channel);
+/*
+ * Transfer mode
+ */
+#define SPI_POLL_MODE                 1
+#define SPI_IT_MODE                   2
+#define SPI_DMA_MODE                  3
+
+ms_err_t stm32_spi_bus_dev_create(const char *path, ms_uint8_t channel, ms_uint8_t trans_mode);
 void     stm32_spi_irq_handler(ms_uint8_t channel);
 
 #ifdef __cplusplus

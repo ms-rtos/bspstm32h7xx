@@ -44,6 +44,7 @@ src/driver/stm32_drv_netif.c \
 src/driver/stm32_drv_wdg.c \
 src/driver/stm32_drv_uart.c \
 src/driver/stm32_drv_rtc.c \
+src/driver/stm32_drv_spi.c \
 src/board/IOT_PI_PRO/iot_pi_pro_init.c \
 src/board/IOT_PI_PRO/iot_pi_pro_irq.c \
 src/board/IOT_PI_PRO/iot_pi_pro_sd.c \
@@ -52,6 +53,8 @@ src/board/IOT_PI_PRO/iot_pi_pro_uart.c \
 src/board/IOT_PI_PRO/iot_pi_pro_esp8266.c \
 src/board/IOT_PI_PRO/iot_pi_pro_i2c.c \
 src/board/IOT_PI_PRO/iot_pi_pro_ts.c \
+src/board/IOT_PI_PRO/iot_pi_pro_spi.c \
+src/board/IOT_PI_PRO/iot_pi_pro_sx1278.c \
 src/Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates/system_stm32h7xx.c \
 src/startup/startup_stm32h750xx.S
 

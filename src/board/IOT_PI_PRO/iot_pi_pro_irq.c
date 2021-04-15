@@ -159,6 +159,62 @@ void LTDC_IRQHandler(void)
 }
 
 #endif
+
+#if BSP_CFG_SPI_EN > 0
+void SPI1_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(1U);
+
+    (void)ms_int_exit();
+}
+
+void SPI2_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(2U);
+
+    (void)ms_int_exit();
+}
+
+void SPI3_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(3U);
+
+    (void)ms_int_exit();
+}
+
+void SPI4_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(4U);
+
+    (void)ms_int_exit();
+}
+
+void SPI5_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(5U);
+
+    (void)ms_int_exit();
+}
+
+void SPI6_IRQHandler(void)
+{
+    (void)ms_int_enter();
+
+    stm32_spi_irq_handler(6U);
+
+    (void)ms_int_exit();
+}
+#endif
 /*********************************************************************************************************
   END
 *********************************************************************************************************/

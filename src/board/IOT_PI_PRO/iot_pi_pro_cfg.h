@@ -120,6 +120,7 @@
 #define BSP_CFG_I2C_EN              1
 #define BSP_CFG_UART_EN             1
 #define BSP_CFG_HW_TEST_EN          0
+#define BSP_CFG_SPI_EN              1
 
 #if BSP_CFG_HW_TEST_EN > 0
 #undef  BSP_CFG_CONSOLE_DEV

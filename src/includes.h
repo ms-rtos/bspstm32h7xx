@@ -46,7 +46,7 @@ extern "C" {
 #include "stm32h7xx_hal_cortex.h"
 #include "stm32h7xx_hal_smartcard.h"
 #include "stm32h7xx_hal_dma2d.h"
-
+#include "stm32h7xx_hal_spi.h"
 #include "core_cm7.h"
 
 /*********************************************************************************************************
