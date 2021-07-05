@@ -393,7 +393,7 @@ static void boot_thread(ms_ptr_t arg)
         ms_printk(MS_PK_ERR, "failed to attach spi.\n");
     }
 #endif
-    ms_process_create("iotpi_sddc", 0x90100000, 65536, 4096, 9, 0 , 0, MS_NULL, MS_NULL, MS_NULL);
+    ms_process_create("iotpi_sddc", 0x90100000, 131072, 4096, 9, 0 , 0, MS_NULL, MS_NULL, MS_NULL);
 }
 
 #if BSP_CFG_HW_TEST_EN > 0
