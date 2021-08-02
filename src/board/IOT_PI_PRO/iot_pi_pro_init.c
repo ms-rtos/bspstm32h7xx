@@ -159,7 +159,7 @@ void ms_bsp_printk(const char *buf, ms_size_t len)
         USART1->TDR = *buf++;
     }
 #else
-    ms_trace_write(buf, len);
+    ms_trace_write(MS_NULL, buf, len);
 #endif
 }
 
@@ -196,23 +196,18 @@ void ms_bsp_shutdown(void)
  */
 static void shell_thread(ms_ptr_t arg)
 {
-    extern unsigned long __ms_shell_cmd_start__;
-    extern unsigned long __ms_shell_cmd_end__;
-
     ms_shell_io_t bsp_shell_io = {
-            (ms_shell_cmd_t *)&__ms_shell_cmd_start__,
-            (ms_shell_cmd_t *)&__ms_shell_cmd_end__ - (ms_shell_cmd_t *)&__ms_shell_cmd_start__,
 #if (BSP_CFG_CONSOLE_DEV == BSP_CONSOLE_TRACE)
             ms_trace_getc,
             ms_trace_putc,
             ms_trace_write,
             ms_trace_printf,
 #elif (BSP_CFG_CONSOLE_DEV == BSP_CONSOLE_UART)
-            ms_getc,
-            ms_putc,
-            ms_write_stdout,
-            ms_printf,
-            ms_gets,
+            ms_shell_getc_stdin,
+            ms_shell_putc_stdout,
+            ms_shell_write_stdout,
+            ms_shell_printf_stdout,
+            ms_shell_gets_stdin,
 #endif
     };
 
@@ -702,7 +697,7 @@ static void test_thread(ms_ptr_t arg)
         if (dir != MS_NULL) {
             do {
                 ret = ms_io_readdir_r(dir, &dirent, &result);
-                if ((ret > 0) && (result != MS_NULL)) {
+                if ((ret == 0) && (result != MS_NULL)) {
                     if ((strcmp(result->d_name, ".") == 0) || (strcmp(result->d_name, "..") == 0)) {
                         continue;
                     }

@@ -19,8 +19,6 @@
 ** Ãè        Êö: IoT Pi Pro LoRa SX1278 Çý¶¯
 *********************************************************************************************************/
 #define __MS_IO
-#include "ms_kern.h"
-#include "ms_io_core.h"
 #include "ms_config.h"
 #include "ms_rtos.h"
 #include "includes.h"
